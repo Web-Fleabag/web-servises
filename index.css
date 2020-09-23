@@ -12,7 +12,7 @@ body{
     
 }
 .container-fluid1{
-background: url(movie-h.jpg);
+background: url(./img/movie-h.jpg);
 background-position: center;
 background-size: cover;
 width: 100%;
@@ -30,9 +30,36 @@ font-family: 'Kumbh Sans', sans-serif;
     margin-right:5em;
 }
 .row1{
-    margin-top: 1.5em;
-    margin-bottom: 2.5em;
+  padding-top: 1.5em;
+    padding-bottom: 2.5em;
 }
 .title1{
     padding-bottom: 0.5em;
+}
+.formIn{
+    font-family: 'Kumbh Sans', sans-serif; 
+}
+.margin-item{
+    margin-left: 10vh;
+    padding-top: 30vh;
+
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+ a:hover {
+    text-decoration: none;
+     color: black;
+   }
+.card1{
+    width: 18rem;
+}
+.centerBtn{
+    margin-left: 20%;
+    background-color: #f7c94a;
+}
+.marginal{
+    margin-top: 5vh;
+    margin-bottom: 2.5vh;
 }
