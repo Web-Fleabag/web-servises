@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 body{
     background-color: #141311;
+    margin-bottom: 60px;
 }
+
 .logo{
     width: 3em;
     height: auto;
@@ -62,4 +64,19 @@ a{
 .marginal{
     margin-top: 5vh;
     margin-bottom: 2.5vh;
+}
+html {
+  position: relative;
+  min-height: 100%;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 13vh;
+    background: #343a40!important;
+}
+
+
 }
