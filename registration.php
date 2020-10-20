@@ -18,6 +18,7 @@
             <div class="marginal"> <h2>Sign Up</h2></div>
              <hr>
                <form class="formIn" method="post" action="registration.php" autocomplete='off';>
+               <!--    <?php include('errors.php'); ?> -->
               <div class="form-group ">
     <label for="InputData">Input your name</label>
     <input type="text" class="form-control" id="username" aria-describedby="dataHelp" placeholder="Username" name="username" value="<?php echo $username; ?>">
@@ -27,31 +28,19 @@
     <label for="InputEmail1">Email address</label>
     <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="email" name="email" value="<?php echo $email; ?>">
   </div>
-  <div class="form-group">
-    <label for="InputPassword1">Password</label>
-    <input type="password" class="form-control" id="password" placeholder="password" name="password">
+                   <div class="input-group">
+                       <label>Password</label>
+                       <input type="password" name="password_1">
+                   </div>
+                   <div class="input-group">
+                       <label>Confirm password</label>
+                       <input type="password" name="password_2">
+                   </div>
   </div>
   <button type="submit" class="btn marginal" style="background-color: #f7c94a" name="reg_user">Submit</button>
 </form>     
       </div>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       
     </body>
 </html>
