@@ -44,7 +44,7 @@ if (isset($_GET['logout'])) {
 
            <header>
                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                   <a class="navbar-brand" href="index.html">  <img src="./img/logo2.jpg" class="logo"  alt=""></a>
+                   <a class="navbar-brand" href="index.php">  <img src="./img/logo2.jpg" class="logo"  alt=""></a>
                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                        <span class="navbar-toggler-icon"></span>
                    </button>
@@ -55,7 +55,7 @@ if (isset($_GET['logout'])) {
                                <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                            </li>
                            <li class="nav-item">
-                               <a class="nav-link" href="collection_post.html">Collection</a>
+                               <a class="nav-link" href="collection_post.php">Collection</a>
                            </li>
                            <li class="nav-item dropdown">
                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -82,12 +82,10 @@ if (isset($_GET['logout'])) {
                </nav>
            </header>
 
-
-
            <div class="container-fluid1">
                <div class="margin-item">
                    <h1 class="display-1 ">Cinema collection</h1>
-                   <button type="button" class="btn btn-lg " style="background-color: #f7c94a; margin-left: 25%;"><b><a href="collection.html">Start now</a></b></button>
+                   <button type="button" class="btn btn-lg " style="background-color: #f7c94a; margin-left: 25%;"><b><a href="collection_post.php">Start now</a></b></button>
                </div>
 
            </div>
