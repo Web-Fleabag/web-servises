@@ -74,7 +74,17 @@ html {
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 13vh;
+  height: 10%;
     background: #343a40!important;
 }
 
+.round {
+    margin-right: 30%;
+    margin-left: 30%;
+    margin-top: 15%;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px; /* Радиус скругления */
+    border: 3px solid #f7c94a; /* Параметры рамки */
+    box-shadow: 0 0 7px #666; /* Параметры тени */
+}
