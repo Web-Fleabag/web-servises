@@ -14,12 +14,18 @@
     <title>Sign In</title>
   </head>
   <body>
-      
+  <?php
+  if (!empty($_POST)) {
+       // session_start();
+      header('location:index.php');
+  }
+  ?>
       <div class="container" style="text-align: center; background-color: white; width: 35%; margin-top:7vh;border-radius: 5%; ">
             <div class="marginal"> <h2>Sign In</h2></div>
              <hr>
                <form class="formIn" method="post" action="login.php" autocomplete='off';>
             <?php include('errors.php'); ?>
+
               <div class="form-group ">
     <label for="InputData">Input your name</label>
     <input type="text" class="form-control" id="username" aria-describedby="dataHelp" placeholder="Username" name="username">
@@ -28,6 +34,10 @@
     <label for="InputPassword1">Password</label>
     <input type="password" class="form-control" id="password" placeholder="password" name="password">
   </div>
+                   <div class="form-check">
+                       <input type="checkbox" class="form-check-input" id='remember' name='remember' value='1'>
+                       <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                   </div>
   <button type="submit" class="btn marginal" style="background-color: #f7c94a" name="login_user">Submit</button>
                    <p><a href="registration.php">Зарегистрироваться</a></p>
 </form>     

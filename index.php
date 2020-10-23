@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 
@@ -8,6 +9,8 @@ if (!isset($_SESSION['username'])) {
 if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['username']);
+    setcookie('username', '', time()); //удаляем логин
+    setcookie('key', '', time()); //удаляем ключ
     header("location: login.php");
 }
 ?>

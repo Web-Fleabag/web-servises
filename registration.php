@@ -13,7 +13,6 @@
     <title>Sign Up</title>
   </head>
   <body>
-      
       <div class="container" style="text-align: center; background-color: white; width: 35%; margin-top:7vh;border-radius: 5%; ">
             <div class="marginal"> <h2>Sign Up</h2></div>
              <hr>
