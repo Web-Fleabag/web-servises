@@ -13,11 +13,11 @@
     <title>Sign Up</title>
   </head>
   <body>
-      
       <div class="container" style="text-align: center; background-color: white; width: 35%; margin-top:7vh;border-radius: 5%; ">
             <div class="marginal"> <h2>Sign Up</h2></div>
              <hr>
                <form class="formIn" method="post" action="registration.php" autocomplete='off';>
+                  <?php include('errors.php'); ?>
               <div class="form-group ">
     <label for="InputData">Input your name</label>
     <input type="text" class="form-control" id="username" aria-describedby="dataHelp" placeholder="Username" name="username" value="<?php echo $username; ?>">
@@ -27,31 +27,30 @@
     <label for="InputEmail1">Email address</label>
     <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="email" name="email" value="<?php echo $email; ?>">
   </div>
-  <div class="form-group">
-    <label for="InputPassword1">Password</label>
-    <input type="password" class="form-control" id="password" placeholder="password" name="password">
+                   <div class="form-group">
+                       <label for="InputFullName">Full name </label>
+                       <input type="text" class="form-control" id="fullName" placeholder="Full name " name="fullName" value="<?php echo $fullName; ?>">
+                   </div>
+                   <div class="form-group">
+                       <label for="InputNumber">Phone number </label>
+                       <input type="text" class="form-control" id="number" placeholder="number " name="number" value="<?php echo $number; ?>">
+                   </div>
+                   <div class="form-group">
+                       <label for="InputPassword">Password</label>
+                       <input type="password" class="form-control" id="password" placeholder="password" name="password_1">
+                   </div>
+
+                   <div class="form-group">
+                       <label for="ConfirmPassword">Confirm password</label>
+                       <input type="password" class="form-control" id="password" placeholder="confirm password" name="password_2">
+                   </div>
+
+                   <button type="submit" class="btn marginal" style="background-color: #f7c94a" name="reg_user">Submit</button>
   </div>
-  <button type="submit" class="btn marginal" style="background-color: #f7c94a" name="reg_user">Submit</button>
+
 </form>     
       </div>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       
     </body>
 </html>
