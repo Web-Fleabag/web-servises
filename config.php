@@ -5,7 +5,7 @@ define('DB_PASSWORD', '');
 define('DB_NAME', 'collection');
 
 /* Attempt to connect to MySQL database */
-$db = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+$db = mysqli_connect('localhost', 'root', '', 'collection');
 
 // Check connection
 if($db === false){

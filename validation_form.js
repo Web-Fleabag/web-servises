@@ -64,7 +64,21 @@ var checkRating = function () //Проверка на рейтинг
         let error = generateErrors('Enter the correct MPAA age rating category: G, PG, PG-13, R, NC-17 !');
         rating[0].parentElement.insertBefore(error, rating[0]);
     }
-}
+};
+
+uploadData = () => {
+    let formData = new FormData();
+    for (let i = 0; i < search.childElementCount - 2; i++) {
+        formData.append(search[i]['name'], search[i]['value']);
+    }
+
+    let request = new XMLHttpRequest();
+
+    request.open("POST", "http://localhost/web-servises/create_record.php");
+    request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+
+    request.send(JSON.stringify(formData));
+};
 
 search.addEventListener('submit', function (event) {
         event.preventDefault();
@@ -73,6 +87,6 @@ search.addEventListener('submit', function (event) {
         checkFieldsPresence();
         checkInteger();
         checkRating();
-
+        uploadData();
     }
 )

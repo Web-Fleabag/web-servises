@@ -76,7 +76,7 @@ if (isset($_GET['logout'])) {
                     <span class="navbar-text">
                         <?php
                         require_once 'server.php';
-                        $db = mysqli_connect('localhost', 'root', '', 'registration');
+                        require_once "config.php";
                         $result = mysqli_query($db,"SELECT id,username,email,fullName,number FROM users WHERE id='$_SESSION[id]'");
                         $user = mysqli_fetch_assoc($result);
                         ?>

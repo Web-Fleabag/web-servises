@@ -1,4 +1,6 @@
 <?php
+require_once "config.php";
+
 // Объявление переменных
 $username = ""; //переменная для хранения логина
 $email    = ""; // Переменная для хранения email
@@ -15,8 +17,6 @@ function generateSalt()
     }
     return $salt;
 }
-// Подключаемся к БД
-$db = mysqli_connect('localhost', 'root', '', 'registration');
 
 // Для регистрации
 if (isset($_POST['reg_user'])) {
