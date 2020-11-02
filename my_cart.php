@@ -1,11 +1,10 @@
+<?php include_once 'cart.php'?>
 <?php
 session_start();
 if (!isset($_SESSION['id'])) {
     $_SESSION['msg'] = "You must log in first";
     header('location: login.php');
 }
-//echo $_SESSION['id']."<br>";// Для проверки id
-//echo session_id();
 
 ?>
 <!doctype html>
@@ -19,16 +18,9 @@ if (!isset($_SESSION['id'])) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel='stylesheet' href="index.css">
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet">
-    <title>My page</title>
+    <title>My cart</title>
 </head>
 <body>
-
-<div class="error success" >
-    <h3>
-
-    </h3>
-</div>
-
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="index.php">  <img src="./img/logo2.jpg" class="logo"  alt=""></a>

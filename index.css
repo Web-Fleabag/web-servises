@@ -89,3 +89,10 @@ html {
     border: 3px solid #f7c94a; /* Параметры рамки */
     box-shadow: 0 0 7px #666; /* Параметры тени */
 }
+.input:required:valid {
+    border-color: green;
+}
+
+.input:required:invalid {
+    border-color: red;
+}

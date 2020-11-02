@@ -1,13 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['id'])) {
-    $_SESSION['msg'] = "You must log in first";
-    header('location: login.php');
-}
-//echo $_SESSION['id']."<br>";// Для проверки id
-//echo session_id();
-
-?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -19,19 +9,13 @@ if (!isset($_SESSION['id'])) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel='stylesheet' href="index.css">
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet">
-    <title>My page</title>
+    <link href="add_row.js">
+    <title>List of client</title>
 </head>
 <body>
-
-<div class="error success" >
-    <h3>
-
-    </h3>
-</div>
-
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.php">  <img src="./img/logo2.jpg" class="logo"  alt=""></a>
+        <a class="navbar-brand" href="index.html">  <img src="./img/logo2.jpg" class="logo"  alt=""></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -45,7 +29,7 @@ if (!isset($_SESSION['id'])) {
                     <a class="nav-link" href="collection_post.php">Collection</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="collection.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         List
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -62,43 +46,68 @@ if (!isset($_SESSION['id'])) {
         </div>
     </nav>
 </header>
-<?php
-require_once 'server.php';
-$db = mysqli_connect('localhost', 'root', '', 'registration');
-$result = mysqli_query($db,"SELECT id,username,email,fullName,number FROM users WHERE id='$_SESSION[id]'");
-$user = mysqli_fetch_assoc($result);
-?>
 
-<div class="mx-auto" style="width: 90%;">
-    <div class="card mb-3" style="background-color: #DCDCDC; margin-top: 1rem;">
-        <div class="row no-gutters">
-            <div class="col-md-4">
-                <img src="./img/avatar.jpg" alt="" class="round">
-                <p><a href="my_cart.php"><h3>Моя корзина</h3></a></p>
-            </div>
-            <div class="col-md-8">
-                <div class="card-body" style="text-align: center; padding: 3.25rem;">
-                    <h1 class="card-title">Welcome, <?php echo $user['username']; ?></h1>
-                    <p class="font-normal" style="padding: 0.5rem;"><h3>Личные данные</h3></p>
-                    <div class="form-group">
-                        <?php
-                        echo "<p> <b>Username:</b></p> " .$user['username']. "<p> <b>Full Name:</b></p> ".$user['fullName']. "<p><b> Number:</b></p> ".$user['number']. "<p><b>Email:</b></p> ".$user['email']. "<br />";
-                        ?>
-                    </div>
-                    <a href="my_page_edit.php" class="btn btn-lg btnSign">Edit</a>
-                </div>
-            </div>
-        </div>
+<div class="container marginal" style='background-color: white;'>
+    <div id="myDIV ">
+        <h2 class="display-5" style="text-align: center; font-family: 'Kumbh Sans', sans-serif;">List of the clients</h2>
     </div>
+    <table id="myTable" class="table table-hover ">
+        <thead>
+        <tr>
+            <th scope="col">№</th>
+            <th scope="col">Client name</th>
+            <th scope="col">Phone number</th>
+            <th scope="col">Last request</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>@twitter</td>
+        </tr>
+        <tr>
+            <th scope="row">4</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>@twitter</td>
+        </tr>
+        <tr>
+            <th scope="row">5</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>@twitter</td>
+        </tr>
+        <tr>
+            <th scope="row">6</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>@twitter</td>
+        </tr>
+        <tr>
+            <th scope="row">7</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>@twitter</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
-
 
 <!-- Footer -->
 <section id="footer">
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-                <p> Cinema collection </p>
+                <p> Cinema collection  </p>
                 <p class="h6">© All right Reversed.</p>
             </div>
             <hr>
@@ -107,5 +116,3 @@ $user = mysqli_fetch_assoc($result);
 </section>
 </body>
 </html>
-
-

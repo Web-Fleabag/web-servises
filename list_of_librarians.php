@@ -1,13 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['id'])) {
-    $_SESSION['msg'] = "You must log in first";
-    header('location: login.php');
-}
-//echo $_SESSION['id']."<br>";// Для проверки id
-//echo session_id();
-
-?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -19,16 +9,9 @@ if (!isset($_SESSION['id'])) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel='stylesheet' href="index.css">
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet">
-    <title>My page</title>
+    <title>Cinema collection</title>
 </head>
 <body>
-
-<div class="error success" >
-    <h3>
-
-    </h3>
-</div>
-
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="index.php">  <img src="./img/logo2.jpg" class="logo"  alt=""></a>
@@ -62,37 +45,47 @@ if (!isset($_SESSION['id'])) {
         </div>
     </nav>
 </header>
-<?php
-require_once 'server.php';
-$db = mysqli_connect('localhost', 'root', '', 'registration');
-$result = mysqli_query($db,"SELECT id,username,email,fullName,number FROM users WHERE id='$_SESSION[id]'");
-$user = mysqli_fetch_assoc($result);
-?>
-
 <div class="mx-auto" style="width: 90%;">
     <div class="card mb-3" style="background-color: #DCDCDC; margin-top: 1rem;">
         <div class="row no-gutters">
             <div class="col-md-4">
-                <img src="./img/avatar.jpg" alt="" class="round">
-                <p><a href="my_cart.php"><h3>Моя корзина</h3></a></p>
+                <img src="img/librarians_1.jpg" class="card-img">
             </div>
             <div class="col-md-8">
                 <div class="card-body" style="text-align: center; padding: 3.25rem;">
-                    <h1 class="card-title">Welcome, <?php echo $user['username']; ?></h1>
-                    <p class="font-normal" style="padding: 0.5rem;"><h3>Личные данные</h3></p>
-                    <div class="form-group">
-                        <?php
-                        echo "<p> <b>Username:</b></p> " .$user['username']. "<p> <b>Full Name:</b></p> ".$user['fullName']. "<p><b> Number:</b></p> ".$user['number']. "<p><b>Email:</b></p> ".$user['email']. "<br />";
-                        ?>
-                    </div>
-                    <a href="my_page_edit.php" class="btn btn-lg btnSign">Edit</a>
+                    <h1 class="card-title">Кристина Лебедева</h1>
+                    <p class="font-italic" style="padding: 2rem;">Отвечает за наличие фильмов. Может подсказать вам какой фильм можно посмотреть по своему личному опыту. Разбирается в фильмах жанров романтики, драмы и похожее.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-3" style="background-color: #DCDCDC">
+        <div class="row no-gutters">
+            <div class="col-md-8">
+                <div class="card-body" style="text-align: center; padding: 3.25rem;">
+                    <h1 class="card-title">Олег Ликинов</h1>
+                    <p class="font-italic" style="padding: 2rem;">Хорошо разбирается в фильмах ужасов и мистики. Всегда поможет выбрать что-то подходящее вам.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <img src="img/librarians_2.jpg" class="card-img">
+            </div>
+        </div>
+    </div>
+    <div class="card mb-3" style="background-color: #DCDCDC">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="img/librarians_3.jpg" class="card-img">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body" style="text-align: center; padding: 3.25rem;">
+                    <h1 class="card-title">Анастасия Волкова</h1>
+                    <p class="font-italic" style="padding: 2rem;">Прексно понимает знает много семейных и детских фильмов. Может подсказать любой фильм на ваш вкус к вашему вечерному семейному вечеру или подсказать мультфильм для ваших детей или детей знакомых.</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
 <!-- Footer -->
 <section id="footer">
     <div class="container">
@@ -106,6 +99,5 @@ $user = mysqli_fetch_assoc($result);
     </div>
 </section>
 </body>
+<!-- ./Footer -->
 </html>
-
-
