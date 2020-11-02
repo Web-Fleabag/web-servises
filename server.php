@@ -1,5 +1,4 @@
 <?php
-//session_start();
 // Объявление переменных
 $username = ""; //переменная для хранения логина
 $email    = ""; // Переменная для хранения email
@@ -126,19 +125,17 @@ if (isset($_POST['edit'])) {
         $user = mysqli_fetch_assoc($result);
 
         if ($user) { // если существует, то выводим соответствующие ошибки
-            if ($user['username'] === $new_username) {
-                array_push($errors, "The same username");
+            if (empty($user['username'])) {
+                array_push($errors, "Username is required");
             }
-
-            if ($user['email'] === $new_email) {
-                array_push($errors, "The same email");
+            if (empty($user['username'])) {
+                array_push($errors, "Password is required");
             }
-
-            if ($user['fullName'] === $new_fullName) {
-                array_push($errors, "The same name");
+            if (empty($user['fullName'])) {
+                array_push($errors, "Personal data is required");
             }
-            if ($user['number'] === $new_number) {
-                array_push($errors, "The same number");
+            if (empty($user['number'])) {
+                array_push($errors, "Number is required");
             }
         }
         // Если без ошибок - перезаписываем новые данные в БД
@@ -146,6 +143,7 @@ if (isset($_POST['edit'])) {
         $New_password = md5(trim($new_password));//хэшируем новый пароль
         $query = "UPDATE users SET username='$new_username', email='$new_email', fullName='$new_fullName', number='$new_number', password='$New_password'";
         mysqli_query($db, $query);
+        start_session();
         $user_id = $user['id'];
         $_SESSION['id'] = $user_id;
        // $_SESSION['username'] = $new_username;

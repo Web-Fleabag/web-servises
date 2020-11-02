@@ -41,7 +41,7 @@ if (isset($_GET['logout'])) {
     <?php endif ?>
 
     <!-- logged in user information -->
-    <?php  if (isset($_SESSION['username'])) : ?>
+    <?php  if (isset($_SESSION['id'])) : ?>
 
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -74,7 +74,14 @@ if (isset($_GET['logout'])) {
                         </li>
                     </ul>
                     <span class="navbar-text">
-      Welcome back, <?php echo $_SESSION['username']; ?>
+                        <?php
+                        require_once 'server.php';
+                        $db = mysqli_connect('localhost', 'root', '', 'registration');
+                        $result = mysqli_query($db,"SELECT id,username,email,fullName,number FROM users WHERE id='$_SESSION[id]'");
+                        $user = mysqli_fetch_assoc($result);
+                        ?>
+      Welcome back, <?php echo $user['username'];
+      ?>
           <a class="btn my-2 my-sm-0" type="submit" href="my_page.php">Личный кабинет</a>
           <a href="index.php?logout='1'">logout</a>
     </span>

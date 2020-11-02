@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['id'])) {
     $_SESSION['msg'] = "You must log in first";
     header('location: login.php');
 }
@@ -52,14 +52,12 @@ if (!isset($_SESSION['username'])) {
                 </li>
             </ul>
             <span class="navbar-text">
-      Welcome back, <?php echo $_SESSION['username']; ?>
           <a class="btn my-2 my-sm-0" type="submit" href="my_page.php">Личный кабинет</a>
           <a href="index.php?logout='1'">logout</a>
     </span>
         </div>
     </nav>
 </header>
-
 <div class="container-fluid">
     <div class="row row1">
         <div class="col">
@@ -148,15 +146,12 @@ if (!isset($_SESSION['username'])) {
 </div>
 
 
-
-
-
-
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script language="javascript" type="text/javascript" src="functions.js"></script>
 <!-- Footer -->
 <section id="footer">
     <div class="container">

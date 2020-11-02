@@ -64,7 +64,8 @@ if (!isset($_SESSION['id'])) {
     <?php
     require_once 'server.php';
     $db = mysqli_connect('localhost', 'root', '', 'registration');
-    $result = mysqli_query($db,"SELECT username,email,fullName,number FROM users WHERE username='$_SESSION[id]'"); ?>
+    $result = mysqli_query($db,"SELECT id,username,email,fullName,number FROM users WHERE id='$_SESSION[id]'");
+    $user = mysqli_fetch_assoc($result); ?>
 
     <div class="mx-auto" style="width: 90%;">
         <div class="card mb-3" style="background-color: #DCDCDC; margin-top: 1rem;">
@@ -74,7 +75,7 @@ if (!isset($_SESSION['id'])) {
                 </div>
                 <div class="col-md-8">
                     <div class="card-body" style="text-align: center; padding: 3.25rem;">
-                        <h1 class="card-title">Welcome, <?php echo $_SESSION['username']; ?></h1>
+                        <h1 class="card-title">Welcome, <?php echo $user['username']; ?></h1>
                         <p class="font-normal" style="padding: 0.5rem;"><h3>Изменить личные данные</h3></p>
                         <form class="formIn" method="post" action="my_page_edit.php" autocomplete='off';>
                             <?php include('errors.php'); ?>
