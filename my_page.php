@@ -58,13 +58,17 @@ if (!isset($_SESSION['id'])) {
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#">Disabled</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="calculator.php">Calculator</a>
+                </li>
             </ul>
         </div>
     </nav>
 </header>
 <?php
 require_once 'server.php';
-require_once "config.php";
+require_once 'config_auth.php';
+//$db = mysqli_connect('localhost', 'root', '', 'registration');
 $result = mysqli_query($db,"SELECT id,username,email,fullName,number FROM users WHERE id='$_SESSION[id]'");
 $user = mysqli_fetch_assoc($result);
 ?>

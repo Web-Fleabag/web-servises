@@ -1,6 +1,4 @@
 <?php
-require_once "config.php";
-
 // Объявление переменных
 $username = ""; //переменная для хранения логина
 $email    = ""; // Переменная для хранения email
@@ -8,15 +6,9 @@ $errors = array(); //массив для ошибок
 $fullName = ""; //Переменная для хранения личных данных: ФИО
 $number = ""; // Перменная для хранения номера (номера телефона)
 $user_id = "";
-function generateSalt()
-{
-    $salt = '';
-    $saltLength = 8; //длина соли
-    for($i=0; $i<$saltLength; $i++) {
-        $salt .= chr(mt_rand(33,126)); //символ из ASCII-table
-    }
-    return $salt;
-}
+
+// Подключаемся к БД
+$db = mysqli_connect('localhost', 'root', '', 'registration');
 
 // Для регистрации
 if (isset($_POST['reg_user'])) {
@@ -64,7 +56,7 @@ if (isset($_POST['reg_user'])) {
 
     // ЕСли ошибок нет - регистрируем
     if (count($errors) == 0) {
-        $password = md5($password_1);//хэширование пароля для обеспечения безопасности
+        $password = md5(trim($password_1));//хэширование пароля для обеспечения безопасности
 
         $query = "INSERT INTO users (username, email, fullName, number, password) 
   			  VALUES('$username', '$email', '$fullName', '$number', '$password')";

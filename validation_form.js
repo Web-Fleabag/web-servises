@@ -88,5 +88,7 @@ search.addEventListener('submit', function (event) {
         checkInteger();
         checkRating();
         uploadData();
+   // readyFunction();
     }
 )
+
