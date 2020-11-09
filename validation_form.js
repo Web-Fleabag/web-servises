@@ -25,7 +25,7 @@ var generateErrors = function (text) {
 
 // удаляем ошибки, чтоб по нескольку раз не появлялись на странице
 var removeValidation = function () {
-    var errors = search.querySelectorAll('.error');
+    let errors = search.querySelectorAll('.error');
 
     for (var i = 0; i < errors.length; i++) {
         errors[i].remove();
@@ -34,28 +34,35 @@ var removeValidation = function () {
 
 // Делаем проверку всех элементов типа "element" на пустоту
 var checkFieldsPresence = function () {
+    let errors = [];
     for (var i = 0; i < elements.length; i++) {
         if (!elements[i].value) {
-            var error = generateErrors('This field cant be empty');
+            let error = generateErrors('This field cant be empty');
+            errors.push(error);
             elements[i].parentElement.insertBefore(error, elements[i]);
         }
     }
+
+    return errors.length === 0;
 }
 
 var checkInteger = function () // Проверка значения "available" на тип integer
 {
+    let errors = [];
     for (var i = 0; i < ints.length; i++) {
 
         if (/\D/.test(ints[i].value)) {
-            var error = generateErrors('Enter the integer number!');
+            let error = generateErrors('Enter the integer number!');
+            errors.push(error);
             ints[i].parentElement.insertBefore(error, ints[i]);
         }
     }
+
+    return errors.length === 0;
 }
 
 var checkRating = function () //Проверка на рейтинг
 {
-
     console.log(this.rating);
     let throwExc = true;
     enumRating.filter(ratingItem => ratingItem === this.rating[0]['value']).map(() => throwExc = false);
@@ -63,32 +70,24 @@ var checkRating = function () //Проверка на рейтинг
     if (throwExc) {
         let error = generateErrors('Enter the correct MPAA age rating category: G, PG, PG-13, R, NC-17 !');
         rating[0].parentElement.insertBefore(error, rating[0]);
+        return false;
+    } else {
+        return true;
     }
 };
 
-uploadData = () => {
-    let formData = new FormData();
-    for (let i = 0; i < search.childElementCount - 2; i++) {
-        formData.append(search[i]['name'], search[i]['value']);
-    }
-
-    let request = new XMLHttpRequest();
-
-    request.open("POST", "http://localhost/web-servises/create_record.php");
-    request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-
-    request.send(JSON.stringify(formData));
-};
 
 search.addEventListener('submit', function (event) {
-        event.preventDefault();
+    event.preventDefault();
+    removeValidation();
 
-        removeValidation();
-        checkFieldsPresence();
-        checkInteger();
-        checkRating();
-        uploadData();
-   // readyFunction();
+    if (checkFieldsPresence() && checkInteger() && checkRating()) {
+        return true;
+    }
+
+    // остановить отправку формы на сервер
+      //  uploadData();
+      //  event.defaultPrevented = true;
     }
 )
 
