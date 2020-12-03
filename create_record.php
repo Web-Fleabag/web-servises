@@ -148,7 +148,7 @@ echo
     <meta charset="UTF-8">
     <title>Create Record</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <script src="/js/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
     <style type="text/css">
         .wrapper{
             width: 500px;
@@ -165,7 +165,7 @@ echo
                     <h2>Create Record</h2>
                 </div>
                 <p>Please fill this form and submit to add new film record to the database.</p>
-                <form class="validationForm" id="validationForm" name="validationForm" onsubmit='sender(this); return false;' action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                <form class="validationForm" id="validationForm" name="validationForm"  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                     <div class="form-group <?php echo (!empty($name_error)) ? 'has-error' : ''; ?>">
                         <label>Name</label>
                         <input type="text" data-rule="name" name="name" class="form-control name element" id="name" value="<?php echo $name; ?>">
@@ -230,6 +230,7 @@ echo
         </div>
     </div>
 </div>
-<script src="validation_form.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="js/validation_form.js"></script>
 </body>
 </html>

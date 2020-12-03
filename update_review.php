@@ -281,7 +281,7 @@ else{
                         </div>
                         <input type="hidden" name="id" value="<?php echo $id; ?>"/>
                         <input type="submit" class="validationCheck"  name="validationCheck" id="validationCheck" value="Submit">
-                    <a href="film_issuance_register.php" class="btn btn-default">Cancel</a>
+                        <a href="film_issuance_register.php" class="btn btn-default">Cancel</a>
                 </form>
             </div>
         </div>

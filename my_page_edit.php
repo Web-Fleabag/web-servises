@@ -1,12 +1,5 @@
-<?php
-session_start();
 
-if (!isset($_SESSION['id'])) {
-    $_SESSION['msg'] = "You must log in first";
-    header('location: login.php');
-}
-
-?>
+<?php require_once 'configEnter.php';?>
     <!doctype html>
     <html lang="en">
     <head>
@@ -16,7 +9,7 @@ if (!isset($_SESSION['id'])) {
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <link rel='stylesheet' href="index.css">
+        <link rel='stylesheet' href="css/index.css">
         <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet">
         <title>My page</title>
     </head>
@@ -63,7 +56,7 @@ if (!isset($_SESSION['id'])) {
     </header>
     <?php
     require_once 'server.php';
-    $db = mysqli_connect('localhost', 'root', '', 'registration');
+    require_once 'config_auth.php';
     $result = mysqli_query($db,"SELECT id,username,email,fullName,number FROM users WHERE id='$_SESSION[id]'");
     $user = mysqli_fetch_assoc($result); ?>
 
