@@ -1,4 +1,5 @@
 <?php
+require_once 'config_auth.php';
 // Объявление переменных
 $username = ""; //переменная для хранения логина
 $email    = ""; // Переменная для хранения email
@@ -6,9 +7,6 @@ $errors = array(); //массив для ошибок
 $fullName = ""; //Переменная для хранения личных данных: ФИО
 $number = ""; // Перменная для хранения номера (номера телефона)
 $user_id = "";
-
-// Подключаемся к БД
-$db = mysqli_connect('localhost', 'root', '', 'registration');
 
 // Для регистрации
 if (isset($_POST['reg_user'])) {

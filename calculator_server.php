@@ -45,7 +45,7 @@ if (isset($_POST['submit'])) {
 
     if (isset($error_result))
     {
-        echo "<div class='error_output'>Ошибка: $error_result</div>";
+        echo "<div class='error_output'> <h2>Ошибка:</h2> $error_result</div>";
     } else
         {
         echo "<div class='answer_output'>Ответ: $result</div>";

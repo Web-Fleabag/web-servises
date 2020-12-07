@@ -1,0 +1,60 @@
+body{
+    background-color: #141311;
+    height: 100%;
+}
+
+html {
+    width: 100%;
+    height: 60%;
+    background-color: #141311;
+    background-size: cover;
+}
+.class1
+{
+    background: #343a40;
+    margin: 5%;
+    height: 70vh;
+    border: solid;
+    align-items: center;
+}
+
+.error_output{
+    background-color: #f7c94a ;
+    text-align: center;
+   padding-bottom: 1rem;
+    padding-top: 1rem;
+    font-size: 1.5rem;
+}
+input.numbers{
+    width: 25vh;
+    height: 5vh;
+}
+.calculate-form{
+  margin-top: 2rem;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+.answer_output{
+    background-color: #f7c94a ;
+    text-align: center;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    font-size: 2rem;
+}
+input.submit_form{
+    height:2.5rem;
+    width:10rem;
+    display:inline-block;
+    background-color:#f7994f;
+    border:1px solid #f6994f;
+    border-radius:4px;
+    text-transform:uppercase;
+    color:#ffffff;
+    box-shadow:1px 5px 10px 5px rgb(247, 136, 48) inset;
+}
+select.operations{
+    height:2.5rem;
+    width:2.5rem;
+    background-color: rgb(247, 136, 48);
+    font-size:1em;
+    text-align: center;
+    color:#fff;}

@@ -6,26 +6,31 @@ require_once 'calculator_server.php';
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style_calculator.css">
+    <link rel="stylesheet" href="css/style_calculator.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet">
 </head>
 
 <body>
-<div class="class1">
-<a href="my_page.php" class="btn btn-lg"><h2>Back to the future</h2></a>
-<h1>Cinema calculator</h1>
-<form action='' method='post' class="calculate-form">
-    <input type="text" name="number1" class="numbers" placeholder="Первое число">
-    <select class="operations" name="action">
-        <option value='plus'>+</option>
-        <option value='minus'>-</option>
-        <option value="multiply">*</option>
-        <option value="divide">/</option>
-    </select>
-    <input type="text" name="number2" class="numbers" placeholder="Второе число">
 
-    <input class="submit_form" type="submit" name="submit" value="Получить ответ">
+<div class="card-body" style="background-color: #141311 ;">
+    <div class="class1">
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+            <a href="my_page.php" class="btn btn-lg Btn1" style="background-color: #f7c94a; margin-bottom: 5rem; margin-top: 1rem;"><h2>Back to the future</h2></a>
+            <h1 style="text-align:center;">Cinema calculator</h1>
+            <form action='' method='post' class="calculate-form formIn">
+                <input type="text" name="number1" class="numbers" placeholder="Первое число">
+                <select class="operations" name="action">
+                    <option value='plus'>+</option>
+                    <option value='minus'>-</option>
+                    <option value="multiply">*</option>
+                    <option value="divide">/</option>
+                </select>
+                <input type="text" name="number2" class="numbers" placeholder="Второе число">
+
+                <input class="submit_form" type="submit" name="submit" value="Получить ответ">
+        </div>
+    </div>
 </div>
 </form>
 

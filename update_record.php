@@ -204,6 +204,7 @@ else{
     <meta charset="UTF-8">
     <title>Update Record</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+
     <style type="text/css">
         .wrapper{
             width: 500px;
@@ -286,6 +287,6 @@ else{
         </div>
     </div>
 </div>
-<script src="validation_form.js"></script>
+<script src="js/validation_form.js"></script>
 </body>
 </html>

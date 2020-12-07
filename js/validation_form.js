@@ -14,65 +14,78 @@ var rating = search.querySelectorAll('.rating')
 
 const enumRating = ['G', 'PG', 'PG-13', 'R', 'NC-17'];
 
+let errors = new Map();
+
 //Генерация ошибок
 var generateErrors = function (text) {
-    var error = document.createElement('div');
+    let error = document.createElement('div');
     error.className = 'error';
     error.style.color = 'red';
     error.innerHTML = text;
     return error;
-}
+};
 
 // удаляем ошибки, чтоб по нескольку раз не появлялись на странице
 var removeValidation = function () {
-    var errors = search.querySelectorAll('.error');
-
-    for (var i = 0; i < errors.length; i++) {
-        errors[i].remove();
-    }
-}
+    errors.clear();
+    search.querySelectorAll('.error').forEach(error => {
+        error.remove();
+    });
+};
 
 // Делаем проверку всех элементов типа "element" на пустоту
 var checkFieldsPresence = function () {
     for (var i = 0; i < elements.length; i++) {
         if (!elements[i].value) {
-            var error = generateErrors('This field cant be empty');
-            elements[i].parentElement.insertBefore(error, elements[i]);
+            errors.set(elements[i], generateErrors('This field cant be empty'));
         }
     }
-}
+};
 
 var checkInteger = function () // Проверка значения "available" на тип integer
 {
     for (var i = 0; i < ints.length; i++) {
 
         if (/\D/.test(ints[i].value)) {
-            var error = generateErrors('Enter the integer number!');
-            ints[i].parentElement.insertBefore(error, ints[i]);
+            errors.set(ints[i], generateErrors('Enter the integer number!'));
         }
     }
-}
+
+};
 
 var checkRating = function () //Проверка на рейтинг
 {
-
-    console.log(this.rating);
     let throwExc = true;
     enumRating.filter(ratingItem => ratingItem === this.rating[0]['value']).map(() => throwExc = false);
 
     if (throwExc) {
-        let error = generateErrors('Enter the correct MPAA age rating category: G, PG, PG-13, R, NC-17 !');
-        rating[0].parentElement.insertBefore(error, rating[0]);
+        errors.set(rating[0], generateErrors('Enter the correct MPAA age rating category: G, PG, PG-13, R, NC-17 !'));
     }
-}
+};
+
+let generateElements = () => {
+    errors.forEach((value, key) => {
+        key.parentElement.insertBefore(value, key);
+    })
+};
+
 
 search.addEventListener('submit', function (event) {
+    removeValidation();
+    checkFieldsPresence();
+    checkInteger();
+    checkRating();
+
+    if (errors.size === 0) {
+        return true;
+    } else {
         event.preventDefault();
+        generateElements();
+    }
 
-        removeValidation();
-        checkFieldsPresence();
-        checkInteger();
-        checkRating();
-
+    // остановить отправку формы на сервер
+      //  uploadData();
+      //  event.defaultPrevented = true;
     }
 )
+

@@ -1,8 +1,7 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 body{
     background-color: #141311;
-    margin-bottom: 60px;
+    height: 90%;
 }
 
 .logo{
@@ -15,7 +14,7 @@ body{
 
 }
 .container-fluid1{
-    background: url(./img/movie-h.jpg);
+    background: url(../img/movie-h.jpg);
     background-position: center;
     background-size: cover;
     width: 100%;
@@ -71,11 +70,9 @@ html {
     min-height: 100%;
 }
 #footer {
-    position: absolute;
     bottom: 0;
     width: 100%;
-    /* Set the fixed height of the footer here */
-    height: 10%;
+    height: 15%;
     background: #343a40!important;
 }
 
@@ -88,11 +85,4 @@ html {
     border-radius: 100px; /* Радиус скругления */
     border: 3px solid #f7c94a; /* Параметры рамки */
     box-shadow: 0 0 7px #666; /* Параметры тени */
-}
-.input:required:valid {
-    border-color: green;
-}
-
-.input:required:invalid {
-    border-color: red;
 }

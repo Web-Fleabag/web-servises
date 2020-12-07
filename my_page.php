@@ -1,13 +1,5 @@
-<?php
-session_start();
-if (!isset($_SESSION['id'])) {
-    $_SESSION['msg'] = "You must log in first";
-    header('location: login.php');
-}
-//echo $_SESSION['id']."<br>";// Для проверки id
-//echo session_id();
 
-?>
+<?php require_once 'configEnter.php';?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,7 +9,7 @@ if (!isset($_SESSION['id'])) {
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel='stylesheet' href="index.css">
+    <link rel='stylesheet' href="css/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet">
     <title>My page</title>
 </head>
@@ -78,7 +70,6 @@ $user = mysqli_fetch_assoc($result);
         <div class="row no-gutters">
             <div class="col-md-4">
                 <img src="./img/avatar.jpg" alt="" class="round">
-                <p><a href="my_cart.php"><h3>Моя корзина</h3></a></p>
             </div>
             <div class="col-md-8">
                 <div class="card-body" style="text-align: center; padding: 3.25rem;">
