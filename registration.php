@@ -11,12 +11,13 @@
     <link rel='stylesheet' href="css/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet">
     <title>Sign Up</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
 <div class="container" style="text-align: center; background-color: white; width: 35%; margin-top:7vh;border-radius: 5%; ">
     <div class="marginal"> <h2>Sign Up</h2></div>
     <hr>
-    <form class="formIn" method="post" action="registration.php" autocomplete='off';>
+    <form class="formIn" method="post" action="registration.php" autocomplete="off" id="formData";>
         <?php include('errors.php'); ?>
         <div class="form-group ">
             <label for="InputData">Input your name</label>
@@ -45,11 +46,11 @@
             <input type="password" class="form-control" id="password" placeholder="confirm password" name="password_2">
         </div>
 
-        <button type="submit" class="btn marginal" style="background-color: #f7c94a" name="reg_user">Submit</button>
+        <div class="g-recaptcha" data-sitekey="6Ld2xhUaAAAAAOouLoJNTPfp5CNuF26TaywHvSYm"></div>
+        <button type="submit" class="btn marginal"
+                style="background-color: #f7c94a" name="reg_user">Submit</button>
 
 </form>
 </div>
-
-
 </body>
 </html>

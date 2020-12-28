@@ -15,6 +15,7 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $('[data-toggle="tooltip"]').tooltip();
+
         });
     </script>
 </head>
@@ -49,6 +50,12 @@
                     <a class="nav-link disabled" href="#">Disabled</a>
                 </li>
             </ul>
+            <span class="navbar-text">
+         <form name="search" method="post" action="search.php">
+    <input type="search" name="query" placeholder="Поиск">
+    <button type="submit">Найти</button>
+</form>
+    </span>
         </div>
     </nav>
 </header>

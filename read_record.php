@@ -77,6 +77,8 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
             <div class="col-md-12">
                 <div class="page-header">
                     <h1> More about </h1>
+                    <div> <button class="btn"><?php
+                            echo "<a href='review_show.php?id=". $row['id'] ."' title='View Review' data-toggle='tooltip'> See reviews</a>"; ?> </button> </div>
                 </div>
                 <div class="form-group">
                     <label>Name</label>
@@ -118,6 +120,11 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                     <label>Available</label>
                     <p class="form-control-static"><?php echo $row["available"]; ?></p>
                 </div>
+                <div>
+                    <?php
+                    echo "<a href='review_show.php?id=". $row['id'] ."' title='View Review' data-toggle='tooltip'> ". $row['name'] . "</a>"; ?>
+                </div>
+
                 <p><a href="film_issuance_register.php" class="btn btn-primary">Back</a></p>
             </div>
         </div>

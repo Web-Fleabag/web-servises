@@ -51,7 +51,6 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
 }
 ?>
 
-?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -119,7 +118,8 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                                 echo "<thead>";
                                 echo "<tr>";
 
-                                echo "<th>Username</th>";
+                           //     echo "<th>Username</th>";
+                                echo "<th># </th>";
                                 echo "<th>Rating</th>";
                                 echo "<th>Review</th>";
                                 echo "<th>Action</th>";
@@ -130,10 +130,12 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                               //  foreach($row as $value){
                                     echo "<tr>";
                                    // echo "<td>".$value."</td>";
-                                    echo "<td>" . $row['username'] . "</td>";
+                                  //  echo "<td>" . $row['username'] . "</td>";
+                                    echo "<th>".$row['id']."</th>";
                                     echo "<td>" . $row['rating'] . "</td>";
                                     echo "<td>" . $row['review'] . "</td>";
                                     echo "<td>";
+                                   // echo"<form action='update_review.php' method='get'> <input type='hidden' name='film_id' value='".$row['film_id']."'><input type='hidden' name='id' value='".$row['id']."'><button class='btn btn-success'>Update</button></form>";
                                     echo "<a href='update_review.php?id=". $row['id'] ."' title='Update Record' data-toggle='tooltip'> Update  </a>";
                                     echo "<a href='delete_review.php?id=". $row['id'] ."' title='Delete Record' data-toggle='tooltip'> Delete </a>";
                                     echo "</td>";

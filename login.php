@@ -16,7 +16,6 @@
 <body>
 <?php
 if (!empty($_POST)) {
-    // session_start();
     header('location:index.php');
 }
 ?>
@@ -37,25 +36,8 @@ if (!empty($_POST)) {
         <button type="submit" class="btn marginal" style="background-color: #f7c94a" name="login_user">Submit</button>
         <p><a href="registration.php">Зарегистрироваться</a></p>
     </form>
+    <?php require_once "loginGoogle.php"?>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

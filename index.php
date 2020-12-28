@@ -5,11 +5,13 @@ session_start();
 if (!isset($_SESSION['id'])) {
     $_SESSION['msg'] = "You must log in first";
     header('location: login.php');
+    exit();
 }
 if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['username']);
     header("location: login.php");
+    exit();
 }
 ?>
 
@@ -120,6 +122,10 @@ if (isset($_GET['logout'])) {
                 </div>
             </div>
         </div>
+    <div style="text-align: center; margin-bottom: 5%;">
+        <div class="jumbotron jumbotron-fluid Desc"><h1 style="color: white;">Вы можете найти нас здесь!</h1></div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2631.7239610090714!2d44.52269901555018!3d48.729865979275154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x411acade47070bfb%3A0xd94ee3d383798bee!2z0JLQvtC70LPQvtCz0YDQsNC00KHQmNCi0Jg!5e0!3m2!1sru!2sru!4v1609010282298!5m2!1sru!2sru" width="800" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </div>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -13,7 +13,10 @@ if(isset($_POST["film_id"]) && !empty(trim($_POST["film_id"]))) {
         $input_rating = trim($_POST["rating"]);
         if (empty($input_rating)) {
             $rating_error = "rating is required";
-        } else {
+        } elseif(!filter_var($input_rating, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[0-5\d\s]+$/")))) {
+            $name_error = "You should use only 0-5 rating marks!";
+        }
+        else {
             $rating = $input_rating;
         }
 
@@ -58,8 +61,8 @@ if(isset($_POST["film_id"]) && !empty(trim($_POST["film_id"]))) {
 
         // Close connection
         mysqli_close($db);
-    }
 
+}
 ?>
 
 <!DOCTYPE html>
@@ -109,6 +112,5 @@ if(isset($_POST["film_id"]) && !empty(trim($_POST["film_id"]))) {
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-<!--<script src="js/validation_form.js"></script>-->
 </body>
 </html>

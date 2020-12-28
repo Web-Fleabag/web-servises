@@ -15,7 +15,9 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
         // Attempt to execute the prepared statement
         if(mysqli_stmt_execute($stmt)){
             // Records deleted successfully. Redirect to landing page
-            header("location: review_show.php");
+          //  header("location: review_show.php?id=".$param_id);
+            require_once "film_issuance_register.php";
+           // header("location: film_issuance_register.php");
             exit();
         } else{
             echo "Oops! Something went wrong. Please try again later.";
